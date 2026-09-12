@@ -1,0 +1,79 @@
+2026/08/23 12:04:27.067 Info   Starting JoyToKey v7.3.2
+2026/08/23 12:04:27.067 Info   ExeFile = D:\JoyToKey\JoyToKey.exe
+2026/08/23 12:04:27.067 Info   Args = D:\JoyToKey\JoyToKey.exe
+2026/08/23 12:04:27.067 Info   DataDirectory = C:\Users\AtongWood\Documents\JoyToKey\
+2026/08/23 12:04:27.067 Info   Profile = 
+2026/08/23 12:04:27.067 Info   IniFile = C:\Users\AtongWood\Documents\JoyToKey\JoyToKey.ini
+2026/08/23 12:04:27.069 Info   Loading ini file: C:\Users\AtongWood\Documents\JoyToKey\JoyToKey.ini (AppInfo.cpp#263)
+2026/08/23 12:04:27.070 Info   LicenseKey "" is not valid
+2026/08/23 12:04:27.133 Info   Windows 10 or later (Main.cpp#106)
+2026/08/23 12:04:27.133 Info   Loading hid.dll (ProcessingHID.h#58)
+2026/08/23 12:04:27.134 Info   Initialized HID (Processing.cpp#178)
+2026/08/23 12:04:27.134 Info   Loading XInput1_4.dll (Processing.cpp#188)
+2026/08/23 12:04:27.136 Info   Initialized XInput (Processing.cpp#217)
+2026/08/23 12:04:27.170 Info   Initialized DirectInput (Processing.cpp#230)
+2026/08/23 12:04:27.172 Info   Detected a HID controller[0]: VendorId=0x20BC, ProductId=0x5128, UsagePage=1, Usage=5, Path=\\?\HID#VID_20BC&PID_5128&IG_01#8&71d9b3d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2026/08/23 12:04:27.172 Info   Vendor = General
+2026/08/23 12:04:27.172 Info   Product = Controller (BTP-KP20 XINPUT)
+2026/08/23 12:04:27.172 Info   DeviceName = BTP-KP20 XINPUT
+2026/08/23 12:04:27.173 Info   numAxis = 5 [1,1,1,1,1,0,0,0]
+2026/08/23 12:04:27.173 Info   numPOVs = 1
+2026/08/23 12:04:27.173 Info   numButtons = 10
+2026/08/23 12:04:27.177 Info   Detected XI device[0]
+2026/08/23 12:04:27.177 Info   VendorId=20BC, ProductId=5128
+2026/08/23 12:04:27.177 Info   GUID=20BC5128-1, Name=XInput Device #1
+2026/08/23 12:04:27.178 Info   DetectJoysticks: Detected 1 XI joystick(s)
+2026/08/23 12:04:27.232 Info   Detected a DI joystick: Controller (BTP-KP20 XINPUT), Controller (BTP-KP20 XINPUT), 512820BC, {3BB2C380-BBE9-11EF-8002-444553540000}
+2026/08/23 12:04:27.300 Info   Assign BTP-KP20 XINPUT to Joystick[1] (20BC5128-1)
+2026/08/23 12:04:27.300 Info   1 joystick(s) are detected (Processing.cpp#317)
+2026/08/23 12:04:27.300 Info   ConfigDir=C:\Users\AtongWood\Documents\JoyToKey\*.cfg (ConfigFileManager.cpp#41)
+2026/08/23 12:04:27.300 Info   Failed to find AppLink.dat (AppLinkManager.cpp#29)
+2026/08/23 12:04:27.338 Info   Application is running with administrator privileges (Main.cpp#182)
+2026/08/23 12:04:27.342 Info   TimerInit: Initializing timer at 16 msec (with x1 speed mode)
+2026/08/23 12:04:27.342 Info   TimerInit: Timer initialized (Processing.cpp#1040)
+2026/08/23 12:04:27.494 Info   Detected a HID controller[0]: VendorId=0x20BC, ProductId=0x5128, UsagePage=1, Usage=5, Path=\\?\HID#VID_20BC&PID_5128&IG_01#8&71d9b3d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2026/08/23 12:04:27.494 Info   Vendor = General
+2026/08/23 12:04:27.494 Info   Product = Controller (BTP-KP20 XINPUT)
+2026/08/23 12:04:27.494 Info   DeviceName = BTP-KP20 XINPUT
+2026/08/23 12:04:27.494 Info   numAxis = 5 [1,1,1,1,1,0,0,0]
+2026/08/23 12:04:27.494 Info   numPOVs = 1
+2026/08/23 12:04:27.494 Info   numButtons = 10
+2026/08/23 12:04:27.494 Info   Detected XI device[0]
+2026/08/23 12:04:27.494 Info   VendorId=20BC, ProductId=5128
+2026/08/23 12:04:27.494 Info   GUID=20BC5128-1, Name=XInput Device #1
+2026/08/23 12:04:27.495 Info   DetectJoysticks: Detected 1 XI joystick(s)
+2026/08/23 12:04:27.552 Info   Detected a DI joystick: Controller (BTP-KP20 XINPUT), Controller (BTP-KP20 XINPUT), 512820BC, {3BB2C380-BBE9-11EF-8002-444553540000}
+2026/08/23 12:04:27.610 Info   Assign BTP-KP20 XINPUT to Joystick[1] (20BC5128-1)
+2026/08/23 12:04:27.610 Info   1 joystick(s) are detected (Processing.cpp#317)
+2026/08/23 18:27:23.662 Info   Detected a HID controller[0]: VendorId=0x20BC, ProductId=0x5128, UsagePage=1, Usage=5, Path=\\?\HID#VID_20BC&PID_5128&IG_01#8&71d9b3d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2026/08/23 18:27:23.674 Info   Vendor = General
+2026/08/23 18:27:23.674 Info   Product = Controller (BTP-KP20 XINPUT)
+2026/08/23 18:27:23.674 Info   DeviceName = BTP-KP20 XINPUT
+2026/08/23 18:27:23.679 Info   numAxis = 5 [1,1,1,1,1,0,0,0]
+2026/08/23 18:27:23.679 Info   numPOVs = 1
+2026/08/23 18:27:23.679 Info   numButtons = 10
+2026/08/23 18:27:23.679 Info   Detected XI device[0]
+2026/08/23 18:27:23.679 Info   VendorId=20BC, ProductId=5128
+2026/08/23 18:27:23.679 Info   GUID=20BC5128-1, Name=XInput Device #1
+2026/08/23 18:27:23.680 Info   DetectJoysticks: Detected 1 XI joystick(s)
+2026/08/23 18:27:23.739 Info   Detected a DI joystick: Controller (BTP-KP20 XINPUT), Controller (BTP-KP20 XINPUT), 512820BC, {3BB2C380-BBE9-11EF-8002-444553540000}
+2026/08/23 18:27:23.793 Info   Assign BTP-KP20 XINPUT to Joystick[1] (20BC5128-1)
+2026/08/23 18:27:23.793 Info   1 joystick(s) are detected (Processing.cpp#317)
+2026/08/23 18:28:41.780 Info   Detected a HID controller[0]: VendorId=0x20BC, ProductId=0x5128, UsagePage=1, Usage=5, Path=\\?\HID#VID_20BC&PID_5128&IG_01#8&71d9b3d&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+2026/08/23 18:28:41.780 Info   Vendor = General
+2026/08/23 18:28:41.780 Info   Product = Controller (BTP-KP20 XINPUT)
+2026/08/23 18:28:41.780 Info   DeviceName = BTP-KP20 XINPUT
+2026/08/23 18:28:41.780 Info   numAxis = 5 [1,1,1,1,1,0,0,0]
+2026/08/23 18:28:41.780 Info   numPOVs = 1
+2026/08/23 18:28:41.780 Info   numButtons = 10
+2026/08/23 18:28:41.780 Info   Detected XI device[0]
+2026/08/23 18:28:41.780 Info   VendorId=20BC, ProductId=5128
+2026/08/23 18:28:41.780 Info   GUID=20BC5128-1, Name=XInput Device #1
+2026/08/23 18:28:41.781 Info   DetectJoysticks: Detected 1 XI joystick(s)
+2026/08/23 18:28:41.837 Info   Detected a DI joystick: Controller (BTP-KP20 XINPUT), Controller (BTP-KP20 XINPUT), 512820BC, {3BB2C380-BBE9-11EF-8002-444553540000}
+2026/08/23 18:28:41.896 Info   Assign BTP-KP20 XINPUT to Joystick[1] (20BC5128-1)
+2026/08/23 18:28:41.896 Info   1 joystick(s) are detected (Processing.cpp#317)
+2026/08/23 18:28:42.537 Info   TimerTerminate: Terminating timer... (Processing.cpp#1045)
+2026/08/23 18:28:42.648 Info   TimerTerminate: Timer terminated (Processing.cpp#1071)
+2026/08/23 18:28:42.648 Info   Saving .ini file... (AppInfo.cpp#401)
+Application terminated
