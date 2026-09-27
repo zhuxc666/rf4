@@ -9,11 +9,13 @@
 ; F4：循环按住 / 松开 D
 ; F5：确认入鱼护，并取消正在运行的 F2 / F6
 ; F6：快速收鱼（不抬杆）
+; F7：点击循环（左键连点）
 ; End：紧急停止并释放所有按键
 ;
 ; 运行规则：
 ; - 按 F2 或 F6 会取消 F1；F2 与 F6 可同时运行。
 ; - F3 与 F4 互相取消，其他模式不受影响。
+; - F7 点击循环独立运行，与其他模式互不干扰。
 ; - F5 只取消 F2 / F6；End 取消全部模式。
 ; ===================================================
 
@@ -29,6 +31,10 @@ global Timing := {
     DirectionHoldDefault: 160000,   ; F3/F4：间隔为 0 时的默认基础时长（160 秒，±5%）
     DirectionHoldCustom:  3000,   ; F3/F4：有间隔时的可配置按住时长（默认 160 秒，±5%）
     DirectionInterval:      0,   ; F3/F4：每次松开后的基础间隔；设为 0 时持续按住
+    ClickDown:              100,   ; F7：点击循环，每次按住左键的基础时长
+    ClickGap1:             4000,   ; F7：一轮中第 1 次点击后到第 2 次点击之间的基础间隔
+    ClickGap2:              300,   ; F7：一轮中第 2 次点击后到第 3 次点击之间的基础间隔
+    ClickGap3:              500,   ; F7：一轮中第 3 次点击后到下一轮第 1 次点击之间的基础间隔
     ConfirmKeepnet:           110,  ; F5：确认入鱼护时，空格键按住的基础时长
     Status:                  1000   ; 状态提示框显示的基础时长
 }
@@ -37,9 +43,11 @@ global Timing := {
 global Mode := {
     LightJerk: false,
     FastRetrieve: false,
-    FastRetrieveNoRod: false
+    FastRetrieveNoRod: false,
+    ClickLoop: false
 }
 global HoldActive := Map("A", false, "D", false)
+global ClickStep := 0   ; F7：一轮中已完成的点击次数，用于选择下一个间隔
 
 ; 并行模式对共享按键的需求状态
 global Request := {
@@ -111,7 +119,7 @@ ReleaseAllKeys() {
     KeyState.Rod := false
     KeyState.Shift := false
     KeyState.Reel := false
-    Send("{= up}{`` up}{Shift up}{Space up}{A up}{D up}")
+    Send("{= up}{`` up}{Shift up}{Space up}{A up}{D up}{LButton up}")
 }
 
 ; ===================================================
@@ -168,6 +176,7 @@ StopAll() {
     StopFastRetrieveNoRod()
     StopHold("A")
     StopHold("D")
+    StopClickLoop()
     SetTimer(ReleaseConfirmKey, 0)
     ReleaseAllKeys()
 }
@@ -403,6 +412,67 @@ DirectionUp(keyName) {
 }
 
 ; ===================================================
+; F7：点击循环
+; 每轮左键连点 3 下，节奏由 ClickGap1/2/3 决定；
+; 想要等间隔连点，把三个间隔改成同一个值即可。
+; ===================================================
+
+ToggleClickLoop() {
+    global Mode, ClickStep
+    Critical()
+
+    if Mode.ClickLoop {
+        StopClickLoop()
+        ShowStatus("F7 点击循环：停止")
+        return
+    }
+
+    Mode.ClickLoop := true
+    ClickStep := 0
+    ShowStatus("F7 点击循环：开启")
+    ClickLoopDown()
+}
+
+StopClickLoop() {
+    global Mode
+    Mode.ClickLoop := false
+    SetTimer(ClickLoopDown, 0)
+    SetTimer(ClickLoopUp, 0)
+    Send("{LButton up}")
+}
+
+ClickLoopDown() {
+    global Mode, Timing
+    Critical()
+    if !Mode.ClickLoop
+        return
+
+    Send("{LButton down}")
+    SetTimer(ClickLoopUp, -RandomMs(Timing.ClickDown))
+}
+
+ClickLoopUp() {
+    global Mode, ClickStep, Timing
+    Critical()
+    if !Mode.ClickLoop
+        return
+
+    Send("{LButton up}")
+    gapBase := ClickLoopGap(ClickStep)
+    ClickStep := Mod(ClickStep + 1, 3)
+    SetTimer(ClickLoopDown, -RandomMs(gapBase))
+}
+
+ClickLoopGap(step) {
+    global Timing
+    if (step = 0)
+        return Timing.ClickGap1
+    if (step = 1)
+        return Timing.ClickGap2
+    return Timing.ClickGap3
+}
+
+; ===================================================
 ; F5：确认入鱼护
 ; 随机短按空格；只取消 F2 / F6。
 ; ===================================================
@@ -442,6 +512,9 @@ ReleaseConfirmKey() {
 
 *F6::return
 *F6 Up::ToggleFastRetrieveNoRod()
+
+*F7::return
+*F7 Up::ToggleClickLoop()
 
 *End::return
 *End Up::
